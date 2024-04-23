@@ -1,0 +1,27 @@
+<div id="page">
+<h1>Angular Pokédex</h1>
+<div>
+    <button (click)="onClick('151', '0')">Gen 1</button>
+    <button (click)="onClick('100', '151')">Gen 2</button>
+    <button (click)="onClick('135', '251')">Gen 3</button>
+    <button (click)="onClick('107', '386')">Gen 4</button>
+    <button (click)="onClick('156', '493')">Gen 5</button>
+    <button (click)="onClick('72', '649')">Gen 6</button>
+    <button (click)="onClick('88', '721')">Gen 7</button>
+    <button (click)="onClick('96', '809')">Gen 8</button>
+    <button (click)="onClick('120', '905')">Gen 9</button>
+</div>
+<div id="info">
+    @for (pokemon of pokemons.results; track $index) {
+        
+            <div id="pokemon">
+                <a routerLink="/detail/{{pokemon.url.substring(34)}}">
+                    <div>
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/{{pokemon.url.substr(pokemon.url.indexOf('n/') + 2).slice(0, -1)}}.png" [alt]="pokemon.name + ' ' + 'img'" height="300" width="300">
+                        <h3>{{pokemon.url.substr(pokemon.url.indexOf("n/") + 2).slice(0, -1)}} - {{pokemon.name.substring(0,1).toUpperCase() + pokemon.name.substring(1)}}</h3>
+                    </div>
+                </a>
+            </div>
+    }
+</div>
+</div>

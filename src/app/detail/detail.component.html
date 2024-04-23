@@ -1,0 +1,23 @@
+<h2>{{pokemon.id}} - {{pokemon.name?.substring(0, 1).toUpperCase()}}{{pokemon.name?.substring(1)}}</h2>
+<img src="{{pokemon?.sprites?.other?.home?.front_default}}" height="400" priority width="400">
+<div>
+    @for (type of pokemon?.types; track $index) {
+        <img src="../../assets/{{type?.type.name}}.png" alt="{{type?.type.name}}">
+    }
+</div>
+<div>
+    <h4>Abilities</h4>
+    <ul>
+    @for (ability of pokemon?.abilities; track $index) {
+        <li>{{ability.ability.name?.substring(0, 1).toUpperCase()}}{{ability.ability.name?.substring(1)}}</li>
+    }
+    </ul>
+</div>
+<div>
+    <h4>Height:</h4> <p>{{pokemon.height/10}} m</p>
+    <h4>Weight:</h4> <p>{{pokemon.weight/10}} kg</p>
+</div>
+<div>
+    <h4>Descriptions :</h4>
+        <p>{{description[0]?.flavor_text}}</p>
+</div>
